@@ -36,7 +36,7 @@ if($masukan_awal_bulan==''){
 <?php
 if(isset($_POST['blnawl'])){
 	$masukan_awal_bulan=$_POST['masukan_awal_bulan'];
-	$datakeluaran=mysql_query("INSERT INTO detail_".$_SESSION['login']." VALUES('','Pemasukan awal bulan','$masukan_awal_bulan','$saldo','$masukan_awal_bulan');");
+	$datakeluaran=mysql_query("INSERT INTO detail_".$_SESSION['login']." VALUES('','Pemasukan awal bulan','$masukan_awal_bulan','$saldo','');");
 	if(!$datakeluaran){
 		echo "<p><div class=' text-center notice-danger text-danger bg-danger'>Data tidak dapat dimasukkan !</div></p>";
 	}
