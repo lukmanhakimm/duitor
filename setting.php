@@ -19,6 +19,7 @@ else{
 	
 	echo "<p><div class='text-success notice-success bg-success'><span class='glyphicon glyphicon-ok'></span> Anda sebagai ".$_SESSION['login']."</div></p>";
 ?>
+<<<<<<< HEAD
 <?php
 	$set_	=	mysql_query("select * from info_user");
 	while($hasilq=mysql_fetch_array($set_)){
@@ -101,5 +102,8 @@ if(isset($_POST['ubhpasswd'])){
 }
 ?>
 </form>
+=======
+<h1 class="text-center">Setting</h1><hr>
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 
 <?php } ?>

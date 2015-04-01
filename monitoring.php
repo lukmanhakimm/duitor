@@ -19,6 +19,7 @@ else{
 	
 	echo "<p><div class='text-success notice-success bg-success'><span class='glyphicon glyphicon-ok'></span> Anda sebagai ".$_SESSION['login']."</div></p>";
 ?>
+<<<<<<< HEAD
 <?php
 $saldo 			= $masukan_awal_bulan + $masukan + $saldo - $pengeluaran; 
 $masukan_awal_bulan	=	$_POST['masukan_awal_bulan'];
@@ -43,6 +44,19 @@ if(isset($_POST['blnawl'])){
 }
 ?>
 </div>
+=======
+<?php 
+$masukan_awal_bulan	=	$_POST['masukan_awal_bulan'];
+if((date('d')=='1')&&(date('H')or(date('i')=='00'))){
+	$masukan_awal_bulan	= '';
+}
+if($masukan_awal_bulan==''){
+?>
+<form role="form" action="#" method="post" name="awal_bulan">
+<input type="text" class="fomr-control" name='masukan_awal_bulan' placeholder='Uang awal bulan'>
+<input type="submit" value="Inputkan data" class="btn btn-primary ">
+</form>
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 <?php } ?>
 <table class="table table-hover">
 <thead>
@@ -54,15 +68,23 @@ if(isset($_POST['blnawl'])){
 <tbody>
 	<tr>
 		<td>Pemasukan Bulan Ini ( <b><?php echo date('M'); ?> </b>)</td>
+<<<<<<< HEAD
 		<?php $q=mysql_query("select * from detail_".$_SESSION['login']);
 			$r=mysql_fetch_array($q);
 		?>
 		<td>Rp.<?php echo  $r['pem_awl_bln']; ?>,-</td>
+=======
+		<td>Rp.<?php echo $_POST['masukan_awal_bulan']; ?>,-</td>
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 		
 	</tr>
 	<tr>
 		<td>Saldo </td>
+<<<<<<< HEAD
 		<td>Rp.<?php echo $saldo; ?>,-</td>
+=======
+		<td>Rp.<?php $saldo=$saldo-$dd_keluaran+$dd_pemasukan; echo $saldo; ?>,-</td>
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 	</tr>
 </tbody>
 </table>
@@ -114,7 +136,11 @@ if(isset($_POST['blnawl'])){
 if(isset($_POST['out_keluar'])){
 	$gunakeluar	=	$_POST['gunakeluar'];
 	$jmlkeluar	=	$_POST['jmlkeluar'];
+<<<<<<< HEAD
 	$datakeluaran=	mysql_query("INSERT INTO detail_".$_SESSION['login']." VALUES('','$gunakeluar','$jmlkeluar','$saldo');");
+=======
+	$datakeluaran=	ysql_query("INSERT INTO detail_".$_SESSION['login']." VALUES('','$gunakeluar','$jmlkeluar','$saldo');");
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 	if(!$datakeluaran){
 		echo "<p><div class='text-primary text-center notice-danger text-danger bg-danger'>Data tidak dapat dimasukkan !</div></p>";
 	}
@@ -149,4 +175,10 @@ if(isset($_POST['in_masuk'])){
 ?>
 
 </div>
+<<<<<<< HEAD
+=======
+<?php 
+$saldo=$saldo+$masukan_awal_bulan;
+?>
+>>>>>>> 7b37bc94de2cc19e48387ca42ac75ac46c432ff1
 <?php } ?>
